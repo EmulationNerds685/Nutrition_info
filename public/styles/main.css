@@ -1,0 +1,54 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url('images/top-view-healthy-balanced-vegetarian-food.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+}
+
+.card-title {
+	color: rgb(85, 179, 8);
+	font-size: 40px;
+	font-family: 'Poetsen One', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+hr {
+	border: 10px;
+}
+.content {
+	height: 100%;
+	width: 100%;
+	color: rgb(85, 179, 8);
+	display: flex;
+	justify-content: space-evenly;
+	font-weight: bolder;
+	font-family: 'Poetsen One', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+.nutrition {
+	height: 100%;
+}
+.composition {
+	height: 100%;
+}
+ol {
+	font-size: 20px;
+}
+.com {
+	list-style-type: none;
+}
+.intro {
+	padding: 20px;
+	border-radius: 20px;
+	background: rgba(250, 250, 250, 0.5);
+}
