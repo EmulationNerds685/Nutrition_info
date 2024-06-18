@@ -59,7 +59,7 @@
 							aria-label="Search"
 							name="food"
 						/>
-						<button class="btn btn-outline-success" type="submit">
+						<button  class="btn btn-outline-success" type="submit" >
 							Search
 						</button>
 					</form>
@@ -78,17 +78,14 @@
 					border-radius: 50px;
 				"
 			>
-				<div class="card-body">
+				<div class="card-body" >
 					<h5 class="card-title"><%= name %></h5>
 					<hr />
 					<div class="content">
 						<div class="nutrition">
 							<h3>Nutrition</h3>
-							<ol>
-								<li>Calories:</li>
-								<li>Saturated Fat:</li>
-								<li>Protein:</li>
-								<li>Sodium:</li>
+							<ol><li>Saturated Fat:</li>
+                <li>Sodium:</li>
 								<li>Potassium:</li>
 								<li>Cholestrol:</li>
 								<li>Carbohydrates:</li>
@@ -99,15 +96,13 @@
 						<div class="composition">
 							<h3>Composition</h3>
 							<ol class="com">
-								<li><%= calories %></li>
-								<li><%=sat_fat %>g</li>
-								<li><%= protein %>g</li>
-								<li><%= sodium %>mg</li>
-								<li><%= potassium %>mg</li>
-								<li><%= cholestrol %>mg</li>
-								<li><%= carbo %>g</li>
-								<li><%= fiber %>g</li>
-								<li><%= sugar %>g</li>
+              <li><%=info.fat_total_g %>g</li>
+                <li><%= info.sodium_mg %>mg</li>
+								<li><%= info.potassium_mg %>mg</li>
+								<li><%= info.cholesterol_mg %>mg</li>
+								<li><%= info.carbohydrates_total_g %>g</li>
+								<li><%= info.fiber_g %>g</li>
+								<li><%= info.sugar_g %>g</li>
 							</ol>
 						</div>
 					</div>
@@ -136,5 +131,7 @@
 		</div>
 <%}else{%>
 	<%}%>
+
+
 	</body>
 </html>

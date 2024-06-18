@@ -31,32 +31,26 @@ app.post('/submit', async (req, res) => {
 			headers: options.headers
 		})
 		const content = response.data[0]
-		res.render('index.ejs', {
-			name: req.body.food,
-			calories: content.calories,
-			fat: content.fat_total_g,
-			sat_fat: content.fat_saturated_g,
-			protein: content.protein_g,
-			sodium: content.sodium_mg,
-			potassium: content.potassium_mg,
-			cholestrol: content.cholesterol_mg,
-			carbo: content.carbohydrates_total_g,
-			fiber: content.fiber_g,
-			sugar: content.sugar_g
-		})
+		const len = response.data
+		if (len.length == 1) {
+			res.render('index.ejs', {
+				name: req.body.food,
+				info: content
+			})
+		} else {
+			console.log('error')
+			res.render('index.ejs', {
+				name: null,
+				info: null,
+				error: error.message
+			})
+		}
+		/**/
 	} catch (error) {
+		console.log('Error')
 		res.render('index.ejs', {
 			name: null,
-			calories: null,
-			fat: null,
-			sat_fat: null,
-			protein: null,
-			sodium: null,
-			potassium: null,
-			cholestrol: null,
-			carbo: null,
-			fiber: null,
-			sugar: null,
+			info: null,
 			error: error.message
 		})
 	}
