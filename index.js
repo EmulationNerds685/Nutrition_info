@@ -1,46 +1,54 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import ejs from "ejs"
 import axios from 'axios'
-
+import env from "dotenv"
 const app = express()
 const port = 2000
+env.config()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
-const apiKey = '6b1765fc18mshdf2d0e8b1d5de67p1ac4b4jsn2944a1d76ed3'
-const apiHost = 'nutrition-by-api-ninjas.p.rapidapi.com'
-
+const apiKey = process.env.api_key
+const apiHost = process.env.api_host
 app.get('/', async (req, res) => {
-	res.render('index.ejs')
+	if(temp_name.length==0){
+		res.render("index.ejs")
+	}else{
+		res.render('index.ejs',{name:temp_name,info:temp_info[0]})
+	}
+	
 })
+var temp_name=[]
+var temp_info=[]
 app.post('/submit', async (req, res) => {
-	
-
-	const options = {
-	  method: 'GET',
-	  url: 'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition',
-	  params: {
-		query: req.body.food
-	  },
-	  headers: {
-		'x-rapidapi-key': '6b1765fc18mshdf2d0e8b1d5de67p1ac4b4jsn2944a1d76ed3',
-		'x-rapidapi-host': 'nutrition-by-api-ninjas.p.rapidapi.com'
-	  }
+const options = {
+		method: 'GET',
+		url: process.env.api_url,
+		params: {
+			query: req.body.food
+		},
+		headers: {
+			'x-rapidapi-key': apiKey,
+			'x-rapidapi-host': apiHost
+		}
 	};
-	
+
 	try {
 		const response = await axios.request(options);
-		console.log(response.data)
-		console.log(response.data.length)
-		const result=response.data		
-		if((result).length==0){
-			res.render('index.ejs',{error:"Invalid Food Item!"})
+
+		const result = response.data
+		if ((result).length == 0) {
+			res.render('index.ejs', { error: "Invalid Food Item!" })
 			console.log("Not Found!")
+			
 		}
-		else{
-			res.render("index.ejs",{name:req.body.food,info:result[0]})
+		else {
+			temp_info=[...result]
+			temp_name=req.body.food
+			res.redirect('/')
 		}
-	} catch (error){
-	console.error(error);
+	} catch (error) {
+		res.render('index.ejs', { error: error.message });
 	}
 })
 
