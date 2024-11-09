@@ -8,34 +8,35 @@ body {
 	background-position: center;
 }
 
+.navbar {
+	position: fixed;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
 .container {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	
 }
 
 .card-title {
-	/*color: rgb(85, 179, 8);
-	*/
 	font-size: 40px;
 	font-family: 'Poetsen One', sans-serif;
 	font-weight: 400;
 	font-style: normal;
 }
+
 .card {
-	width: 80%;
+	width: 70%;
 	text-align: center;
-	background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='20' height='88' patternTransform='scale(3) rotate(80)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(60, 4.89%, 87.99%, 1)'/><path d='M-5 5L5.1 15 15 5l10 10'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(22, 34.09%, 82.69%, 1)' fill='none'/><path d='M-5 25L5.1 35 15 25l10 10'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(43, 82.49%, 88.79%, 1)' fill='none'/><path d='M-5 45L5.1 55 15 45l10 10'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(60, 3.20%, 81.80%, 1)' fill='none'/><path d='M-5 65L5.1 75 15 65l10 10'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(25, 76.10%, 86.90%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-15,-9)' fill='url(%23a)'/></svg>")
+	background-color: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(5px);
 }
-hr {
-	border: 10px;
-}
+
 .content {
 	height: 100%;
 	width: 100%;
-	/*color: rgb(85, 179, 8);
-	*/
 	display: flex;
 	justify-content: space-evenly;
 	font-weight: bolder;
@@ -43,20 +44,45 @@ hr {
 	font-weight: 400;
 	font-style: normal;
 }
+
 .nutrition {
 	height: 100%;
 }
+
 .composition {
 	height: 100%;
 }
+
 ol {
 	font-size: 20px;
 }
+
 .com {
 	list-style-type: none;
 }
-.intro {
-	padding: 20px;
-	border-radius: 20px;
-	background: rgba(250, 250, 250, 0.5);
+
+.intro-info {
+	height: 80vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin-bottom: 15px;
+}
+
+.main-info {
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+	width: 50%;
+	padding: 10px 0px 10px 0px;
+	width: 58%;
+	border-radius: 12px;
+}
+.main-info h4{
+	padding:10px
+}
+.main-info p{
+	width:70%;
+	margin: 0 auto;
 }
